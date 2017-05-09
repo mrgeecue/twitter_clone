@@ -1,0 +1,12 @@
+<p>Have an account?</p>
+
+<form action="/users" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label>Full Name:</label>
+  <input type="text" name="user[full_name]" /></br>
+  <label>Email:</label>
+  <input type='text' name='user[email_address]'></br>
+  <label>Password:</label>
+  <input type='password' name='user[password]'></br>
+  <input type='submit' value='Create'>
+</form>
