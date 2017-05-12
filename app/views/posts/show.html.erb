@@ -1,2 +1,69 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/logout">Logout</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+        <!-- <li><a href="/">Home</a></li> -->
+        <%= image_tag "Twitter_Logo_Blue.png" %>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="search">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <input placeholder="Search twitter">
+        </div>
+        <!-- <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Twitter">
+        </div>
+        <button type="submit" class="btn btn-default">Search Twitter</button> -->
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Tweet</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Twitter</h1>
+  <div id="table">
+    <h4><%= current_user.full_name %></h4>
+    <p><%= current_user.username %><p>
+    <table class="table">
+        <tr>
+          <th><h6>Tweets</h6></th>
+          <th><h6>Followers</h6></th>
+          <th><h6>Following</h6></th>
+        </tr>
+        <tr>
+          <td><h5><%= current_user.posts.count%></h5></td>
+        </tr>
+    </table>
+  </div>
+
+  <form class="newtweet" id="newtweet" action="/posts" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <textarea class="form-control" rows="1" name="post[content]" placeholder="What's happening?"></textarea>
+    <input class="btn btn-info" type="submit" value="Tweet">
+  </form>
+
+  <h2>New Tweets</h2>
+  <div class="panel panel-default" id="panel_panel-default">
+      <% @tweets.each do |tweet| %>
+        <div class="panel-heading"><h4><%= tweet.user.full_name%> </h4> <small><%= tweet.user.username %> • <%= time_ago_in_words(tweet.created_at) %> ago</small> </div>
+        <div class="panel-body">
+          <p><%= tweet.content %></p>
+        </div>
+      <% end %>
+  </div>
+</div>

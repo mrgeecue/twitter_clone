@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+img {
+  margin-left:530px;
+  margin-right: 291px;
+  height: 40px;
+  width: 40px;
+}
+
+#table{
+  width: 10%;
+  height: 60px;
+}
+#panel_panel-default h4,
+#panel_panel-default p {
+  display:inline-block;
+}
+#panel_panel-default,
+#newtweet {
+  width: 700px;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search {
+  position: absolute;
+  top: 24px;
+  left: 7px;
+  font-size: 15px;
+}
+
+.glyphicon glyphicon-search{
+  margin-left: 40px;
+}

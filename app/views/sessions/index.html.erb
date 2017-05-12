@@ -1,12 +1,66 @@
-<p>Have an account?</p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <%= image_tag "Twitter_Logo_Blue.png" %>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div>
+  <form class="form-horizontal" action="/users" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <h3>Join Twitter today.</h3>
+    <fieldset>
+      <div class="form-group">
+        <label for="inputName" class="col-lg-2 control-label">Full Name</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="inputName" placeholder="Full Name" name="user[full_name]">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="inputUsername" placeholder="Username" name="user[username]">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="user[email]">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="user[password]">
+          <input class="btn btn-info" type="submit" value="Sign up">
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
 
-<form action="/users" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <label>Full Name:</label>
-  <input type="text" name="user[full_name]" /></br>
-  <label>Email:</label>
-  <input type='text' name='user[email_address]'></br>
-  <label>Password:</label>
-  <input type='password' name='user[password]'></br>
-  <input type='submit' value='Create'>
-</form>
+  <div class="container">
+      <h3>Have an account?</h3>
+      <form class="form-horizontal" action="/sessions" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <fieldset>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="session[email]">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="session[password]">
+            <input class="btn btn-info" type="submit" value="Sign up">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
